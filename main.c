@@ -59,7 +59,7 @@ int main(){
 }
 
 void create_record(){
-    char name[30], class[20], code[20];
+    char name[40], class[20], code[20];
     int semester;
     float credit, grade;
     int max = c_is_available();
@@ -72,7 +72,8 @@ void create_record(){
         printf("code > ");
         scanf("%s", code); // search_by_code 만들어야됨.
         printf("name> ");
-        scanf("%s", name);
+	getchar();
+        scanf("%[^\n]", name); 
             if(c_search_by_name(name)) {
                 printf("Duplicated name!\n");
                 return;
@@ -92,7 +93,7 @@ void create_record(){
 void read_record(){
     T_Record* records[MAX_CREDIT];
     c_get_all(records);
-    char name[20];
+    char name[40];
     printf("Enter the name > ");
     scanf("%s", name);
     T_Record *p = c_search_by_name(name);
@@ -110,7 +111,7 @@ void read_record(){
 }
 
 void update_record(){
-	char name[20], class[20], code[20];
+	char name[40], class[20], code[20];
 	int semester;
 	float credit, grade;  
    	printf("Enter a lecture name > ");
@@ -138,7 +139,7 @@ void update_record(){
 }
 
 void delete_record(){
-	char name[20];
+	char name[40];
     printf("Enter a name > ");
     scanf("%s", name);
 
@@ -184,22 +185,27 @@ void average_record(){
 	T_Record* records[MAX_CREDIT];
    	c_get_all(records);
    	int size = c_count();
+	int pass = c_pass();
+	int fail = c_fail();
+        
     	float sum=0;
     	float average=0;
      	 for(int i=0; i<size; i++){
          	T_Record* p = records[i];
         	sum += p->grade;    
     	 }	
-    	average = sum/size;
+    	average = (sum-pass*5)/(size-pass+fail);
     	printf("Average Credit is %.2f.", average);
 }
+
 void sort_record(){
 	T_Record* records[MAX_CREDIT];
    	c_get_all(records);
 	int size = c_count();
-	T_Record* p = records[0];
+	T_Record*p = records[0];
 	c_sort(p, size);
 }
+
 void storage_record(){
     T_Record* records[MAX_CREDIT];
     c_get_all(records);

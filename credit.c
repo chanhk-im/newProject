@@ -4,6 +4,8 @@
 
 T_Record* credit[MAX_CREDIT]; 
 int _count = 0;
+int _pass = 0;
+int _fail = 0;
 
 int c_is_available(){
     int i;
@@ -33,6 +35,15 @@ int c_count(){
     return _count;
 }
 
+int c_pass(){
+	return _pass;
+}
+
+int c_fail(){
+	return _fail;
+}
+
+
 void c_create(int s, char* cl, char* cd, char* n, float c, float g){
     int index = c_first_available();
     credit[index] = (T_Record*)malloc(sizeof(T_Record));
@@ -43,6 +54,12 @@ void c_create(int s, char* cl, char* cd, char* n, float c, float g){
     strcpy(p->name, n);
     p->credit = c;
     p->grade = g;
+    if(g==5){
+	_pass++;		
+    }
+    if(g==0){
+	_fail++;
+    }	
     _count++;
 	#ifdef DEBUG  
             printf("[DEBUG] create %d %s %s %s %.1f %.1f\n ", s, cl, cd, n, c, g);
@@ -89,8 +106,8 @@ void c_delete(T_Record* p){
 }
 
 char* c_to_string(T_Record* p){
-    static char str[150];
-    sprintf(str, "%d학기 / %s / [%s] / %s / %.1f학점 / 성적:%.1f ", p->semester, p->class , p->code, p->name, p->credit, p->grade);
+    static char str[200];
+    sprintf(str, "%1d학기/ %s  / [%s] /  %s  / %.1f학점/ 성적:%.1f ", p->semester, p->class , p->code, p->name, p->credit, p->grade);
 	#ifdef DEBUG  
     		printf("[DEBUG] %d %s %s %s %.1f %.1f is recorded \n ", p->semester, p->class , p->code, p->name, p->credit, p->grade);
         #endif
@@ -109,6 +126,7 @@ void c_get_all(T_Record* a[]){
             printf("[DEBUG] get %d record\n", c);
         #endif
 }
+
 
 
 void c_sort(T_Record* p, int n){

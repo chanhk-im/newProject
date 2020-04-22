@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_CREDIT 10     // 저장할 수 있는 회원 레코드 최대 갯수
+#define MAX_CREDIT 50   // 저장할 수 있는 회원 레코드 최대 갯수
 
 // 회원 정보 레코드의 데이터 타입을 정의함
 
@@ -11,12 +11,14 @@ typedef struct st_credit
     int semester;
     char class[20];
     char code[20];
-    char name[30];
+    char name[40];
     float credit;
     float grade;
 } T_Record;
 
 int c_count(); // 현재 저장된 과목들의 수 가져오기
+int c_pass();
+int c_fail();
 int c_first_available(); // 추가 할 수 있는 가장 빠른 배열의 위치 찾기
 int c_is_available();
 void c_get_all(T_Record* a[]); // 과목에 대한 정보가 들어있는 모든 레코드 포인터들의 배열      만들기
