@@ -1,6 +1,5 @@
 #include "credit.h"
 
-// 애플리케이션용 함수 원형
 void create_record();
 void read_record();
 void update_record();
@@ -199,11 +198,8 @@ void average_record(){
 }
 
 void sort_record(){
-	T_Record* records[MAX_CREDIT];
-   	c_get_all(records);
-	int size = c_count();
-	T_Record*p = records[0];
-	c_sort(p, size);
+	printf("list is sorted\n");
+	c_sort();
 }
 
 void storage_record(){

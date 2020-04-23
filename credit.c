@@ -49,7 +49,7 @@ void c_create(int s, char* cl, char* cd, char* n, float c, float g){
     credit[index] = (T_Record*)malloc(sizeof(T_Record));
     T_Record* p = credit[index];
     p->semester = s;
-    strcpy(p->class, cl);  
+    strcpy(p->classes, cl);  
     strcpy(p->code, cd);
     strcpy(p->name, n);
     p->credit = c;
@@ -81,7 +81,7 @@ T_Record* c_search_by_name(char* n){
 
 void c_update(T_Record* p, int s, char* cl, char* cd, float c, float g){
     p->semester =s;
-    strcpy(p->class, cl);
+    strcpy(p->classes, cl);
     strcpy(p->code, cd);
     p->credit = c;
     p->grade = g;
@@ -107,9 +107,9 @@ void c_delete(T_Record* p){
 
 char* c_to_string(T_Record* p){
     static char str[200];
-    sprintf(str, "%1d학기/ %s  / [%s] /  %s  / %.1f학점/ 성적:%.1f ", p->semester, p->class , p->code, p->name, p->credit, p->grade);
+    sprintf(str, "%1d학기/ %s  / [%s] /  %s  / %.1f학점/ 성적:%.1f ", p->semester, p->classes , p->code, p->name, p->credit, p->grade);
 	#ifdef DEBUG  
-    		printf("[DEBUG] %d %s %s %s %.1f %.1f is recorded \n ", p->semester, p->class , p->code, p->name, p->credit, p->grade);
+    		printf("[DEBUG] %d %s %s %s %.1f %.1f is recorded \n ", p->semester, p->classes , p->code, p->name, p->credit, p->grade);
         #endif
     return str;
 }
@@ -129,19 +129,20 @@ void c_get_all(T_Record* a[]){
 
 
 
-void c_sort(T_Record* p, int n){
-	int i, j;
-	T_Record tmp;
-	
-	for(i=n; i>1; i--){
-		for(j=1; j< i; j++){
-			if(p[j-1].semester > p[j].semester){
-				tmp = p[j-1];
-				p[j-1] = p[j];
-				p[j] = tmp;
-			}
-		}
-	}
+void c_sort(){
+	int i=0, j=0;
+        T_Record *temp;
+
+        for(i=_count; i>1; i--){
+                for(j=1; j < i; j++){
+                        if(credit[j-1]->semester > credit[j]->semester){
+                                temp = credit[j-1];
+                                credit[j-1] = credit[j];
+                                credit[j] = temp;
+                        }
+                }
+        }
+
 }
 
 char* c_getname(T_Record* p){
@@ -149,7 +150,7 @@ char* c_getname(T_Record* p){
 }
 
 char* c_getclass(T_Record* p){
-    return p->class;
+    return p->classes;
 }
 
 char* c_getcode(T_Record* p){
@@ -184,10 +185,10 @@ void c_init(){
 
 char* c_to_string_file(T_Record* p){
     static char str[150];
-    sprintf(str,"%d %s %s %s %.1f %.1f ", p->semester, p->class , p->code, p->name, p->credit, p->grade);
+    sprintf(str,"%d %s %s %s %.1f %.1f ", p->semester, p->classes , p->code, p->name, p->credit, p->grade);
    
 	#ifdef DEBUG  
-  		printf("[DEBUG] %d %s %s %s %.1f %.1f save in file \n", p->semester, p->class , p->code, p->name, p->credit, p->grade);
+  		printf("[DEBUG] %d %s %s %s %.1f %.1f save in file \n", p->semester, p->classes , p->code, p->name, p->credit, p->grade);
         #endif
 	return str;
 }
