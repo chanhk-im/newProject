@@ -1,22 +1,26 @@
 학점 관리 CRUD 프로젝트
 
 <사용한 구조체>
-
 typedef struct st_credit
 {
-    int semester;           
-    char classes[20];      
-    char code[20];         
-    char name[40];          
-    float credit;          
-    float grade;            
+    int semester;
+    char classes[20];
+    char code[20];
+    char name[40];
+    float credit;
+    float grade;
 } T_Record;
 
 semester - 수강한 학기.
-classed - 강의의 분류 ex) 교양, 컴퓨터공학, 경영학 등등.
+
+classes - 강의의 분류 ex) 교양, 컴퓨터공학, 경영학 등등.
+
 code - 강의코드 ex) ISE10002, ECE20010 등.
+
 name - 강의 제목 ex) 경영학입문, 데이터구조, oss.
+
 credit - 학점 ex) 경영학입문 = 3학점 / 공동체리더십 훈련 = 0.5 학점.
+
 grade - 본인의 성적 4.5 = A+ 4.0 = A ... 단 PF과목의 경우 Pass는 5.0 Fail은 1.0으로 입력한다.
  
 <메뉴>
