@@ -1,4 +1,5 @@
 학점 관리 CRUD 프로젝트
+
 <사용한 구조체>
 typedef struct st_credit{
 
