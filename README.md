@@ -2,11 +2,16 @@
 
 <사용한 구조체>
 typedef struct st_credit{
-    int semester;
+    int semester; 
+    
     char classes[20];
+    
     char code[20];
+    
     char name[40];
+    
     float credit;
+    
     float grade;
 } T_Record;
 
