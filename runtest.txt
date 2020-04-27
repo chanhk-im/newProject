@@ -1,0 +1,41 @@
+ new lecture's info.
+ Semester > 3
+ class > CSEE
+ code > 1234
+ name> OSS
+ Credit > 2
+ Grade > 3
+
+ Menu : 1.Create 2.Read 3.Update 4.Delete 5.List 6.SP_Read 7.Average 8.Sort 9.Storage_record 11.read _Storage_record 0.Quit > 2
+
+ Enter the name > OSS
+ Lecture info.
+ Semester : 3
+ Class : CSEE
+ Code : 1234
+ Name : OSS
+ Credit : 2.0
+ Grade : 3.0
+
+ Menu : 1.Create 2.Read 3.Update 4.Delete 5.List 6.SP_Read 7.Average 8.Sort 9.Storage_record 11.read _Storage_record 0.Quit > 3
+
+ Enter a lecture name > OSS
+ Enter a updated info.
+ Semester > 3
+ Class > CSEE
+ Code > 1235
+ Credit > 3
+ Grade > 3
+
+ Menu : 1.Create 2.Read 3.Update 4.Delete 5.List 6.SP_Read 7.Average 8.Sort 9.Storage_record 11.read _Storage_record 0.Quit > 2
+
+ Enter the name > OSS
+ Lecture info.
+ Semester : 3
+ Class : CSEE
+ Code : 1235
+ Name : OSS
+ Credit : 3.0
+ Grade : 3.0
+
+ Menu : 1.Create 2.Read 3.Update 4.Delete 5.List 6.SP_Read 7.Average 8.Sort 9.Storage_record 11.read _Storage_record 0.Quit > 0
